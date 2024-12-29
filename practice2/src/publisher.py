@@ -7,7 +7,11 @@ from datetime import datetime
 class Publisher:
     def __init__(self):
         rospy.init_node('publisher', anonymous=True)
-        self.pub = rospy.Publisher('publisher', String, queue_size=10)
+        '''
+        TODO: Define the publisher object with the appropriate topic name, message type
+        Hints : rospy.Publisher('topic_name', message_type, queue_size=N)
+        '''
+        self.pub = rospy.Publisher(..., ..., queue_size=10)
         self.rate = rospy.Rate(1)
         
         while not rospy.is_shutdown():

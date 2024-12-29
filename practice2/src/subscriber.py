@@ -1,16 +1,20 @@
 #!/usr/bin/env python3
-
 import rospy
-from std_msgs.msg import String
 
 class Subscriber:
     def __init__(self):
         rospy.init_node('subscriber', anonymous=True)
-        rospy.Subscriber('publisher', String, self.callback)
+        '''
+        TODO: Choose the appropriate message type and topic name
+        '''
+        rospy.Subscriber(..., ..., self.callback)
         rospy.spin()
     
     def callback(self, data):
-        rospy.loginfo(rospy.get_caller_id() + "I heard %s", data.data)
+        '''
+        TODO: Print the data received from the publisher
+        '''
+        pass
 
 if __name__ == '__main__':
     try:
