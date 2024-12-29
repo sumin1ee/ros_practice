@@ -15,17 +15,22 @@ class tf_publisher:
 
         rate = rospy.Rate(10)
         while not rospy.is_shutdown():
-            # Define the translation and rotation between odom and velodyne
-            translation = (1.03, 0.0, 1.85)  # x, y, z offset (example values)
-            rotation = tf.transformations.quaternion_from_euler(0, 0, 0)  # Roll, Pitch, Yaw (example values)
+            '''
+            TODO: Define the translation and rotation between ground and LiDAR
+            LiDAR is above 1.85m from the ground and far forward 1.03 from the rear wheel with no rotation
+            '''
+            translation = (..., ..., ...) # (x, y, z)
+            rotation = tf.transformations.quaternion_from_euler(..., ..., ...) # (roll, pitch, yaw)
 
-            # Broadcast the transformation
+            '''
+            TODO: Broadcast the transformation
+            '''
             br.sendTransform(
                 translation,
                 rotation,
                 self.pc_time,
-                "velodyne",  # Child frame (target frame)
-                "ground"       # Parent frame (source frame)
+                "...",  # Child frame (target frame), Please check the frame name from rostopic info /velodyne_points
+                "..."   # Parent frame (source frame)
             )
 
             rate.sleep()
